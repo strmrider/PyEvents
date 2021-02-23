@@ -39,11 +39,25 @@ lambda function:  second event emission
 ```
 
 #### API
-* **`subscribe (self, func, calls=None)`**
+* **`subscribe (self, func, calls=-1)`**
+
+    Subscribes a function. *calls* means number of maximum function calls. Any none positive number means infinite number of calls.
+
 * **`emit(self, *args, **kwargs)`**
+
+    Emits the event. All subscribed functions are called with the provided parameters.
+
 * **`set_max(max_subs=0)`**
+
+    Set a maximum number of function subscriptions. 0 or less means no limit.
+
 * **`clear()`**
+
+    Clears all subscriptions.
+    
 * **`get_subscribers()`**
+
+    Returns a list containing all subscriptions.
 
 ### Multiple events handler
 ```Python
@@ -63,10 +77,32 @@ sum: 16
 ```
 #### API
 * **`on(event, listener, calls=0)`**
+    
+    Registers a listener to an event. *calls* means number of maximum function calls. Any none positive number means infinite number of calls.
+
 * **`trigger(event, *args, **kwargs)`**
+    
+    Triggers a given event. All registered listeners are invoked with the provided parameters.
+    
 * **`remove_listener(event, listener)`**
+
+    Removes a listener from an event.
+    
 * **`remove_all_listeners(events)`**
+
+    Receives a list of events and removes all of their registered listeners.
+
+* **`clear_listeners()`**
+
+    Clears all registered listeners from all of the events.
+
+* **`clear_all(events)`**
+
+    Clears all events.
+
 * **`get_listeners(event)`**
+
+    Returns all the listeners of a given event.
 
 ### Observers
 ```Python
@@ -93,8 +129,10 @@ class B(Observer):
 a = A()
 b = B(a)
 a.set_number(5)
+a.set_number(891)
 ```
 Output:
 ```
 subject's property was updated to 5
+subject's property was updated to 891
 ```
