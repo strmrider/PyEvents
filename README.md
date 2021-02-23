@@ -2,7 +2,7 @@
 Simple Python events handling system
 
 ## Features
-* Single events handler
+* Single event handler
 * Multiple events handler
 * Observer pattern
 
