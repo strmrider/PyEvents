@@ -124,7 +124,7 @@ class B(Observer):
 
     # must be overridden
     def notify(self, number):
-        print("subject's property was updated to {}".format(number))
+        print(f"subject's property was updated to {number}")
 
 a = A()
 b = B(a)
